@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment 6.4 - Front End Web Development Fundamentals</title>
+	<style type="text/css">
+		/*Applying basic style to h1 and body contents*/
+		h1
+		{
+			color:blue;
+			font-size: 30px;
+			font-family: arial;
+			text-decoration: underline;
+		}
+		body
+		{
+			font-size: 18px;
+			font-family: sans-serif;
+		}
+		table, th, td
+		{
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+<h1>Tutorial to display three subject marks in a table using Javascript!</h1>
+<br>
+<!--Creating table with 3 students and their subject details -->
+<table id="tbl">
+	<tr>
+		<th>Student Name</th>
+		<th>Subject 1</th>
+		<th>Subject 2</th>
+		<th>Subject 3</th>
+	</tr>
+	<tr>
+		<td>S1</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>S2</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>S3</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	</table>
+<br>
+<p>Click the below button to display student's marks!</p>
+<br><p id="tblDetails"></p>
+<br><input type="Submit" name="subButton" value="Click Me!" onclick="getStudentGrades();" />
+<script type="text/javascript">
+/*This method will add the subjects marks per student in the table and the marks would be added randomly between 1 and 100*/
+/*Could not understand the assignment question, hence displaying random data dynamically*/
+	function getStudentGrades()
+	{
+		var rows;
+		var cols;
+		var table = document.getElementById('tbl');
+		/*Iterating each row*/
+		for (var i = 1; i < table.rows.length; i++) 
+		{
+			rows=table.rows[i];
+			/*Iterating each cell in a row*/
+			for (var j = 1; j < table.rows[i].cells.length; j++) 
+			{
+				table.rows[i].cells[j].innerHTML=randomIntFromInterval(1,100);
+			}
+			
+		}
+		document.getElementById("tblDetails").innerHTML="No of Rows: "+table.rows.length+" No of columns: "+table.rows[0].cells.length;
+	}
+
+	function randomIntFromInterval(min,max)
+{
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
+</script>
+</body>
+</html>
